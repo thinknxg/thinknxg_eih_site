@@ -29,13 +29,8 @@ def _file(path, fname):
 
 
 def _token(key, val):
-	tname = f"EIH {key}"
-	name = frappe.db.get_value("Builder Token", {"token_name": tname})
-	if not name:
-		name = frappe.get_doc({"doctype": "Builder Token", "token_name": tname, "type": "Color", "value": val, "group": "thinkNXG E-Invoice Hub"}).insert(ignore_permissions=True).name
-	else:
-		frappe.db.set_value("Builder Token", name, "value", val)
-	return f"var(--{name})"
+	"""This Builder has no Builder Token doctype, so use the literal colour value."""
+	return val
 
 
 def _script(kind, key, src):
@@ -48,7 +43,8 @@ def _script(kind, key, src):
 		d.script = body
 		d.save(ignore_permissions=True)
 		return existing
-	return frappe.get_doc({"doctype": "Builder Client Script", "script_type": kind, "script": body}).insert(ignore_permissions=True).name
+	d = frappe.get_doc({"doctype": "Builder Client Script", "script_type": kind, "script": body})
+	return d.insert(ignore_permissions=True, set_name=key).name
 
 
 def run():
@@ -82,6 +78,6 @@ def run():
 	for s in (css, js):
 		doc.append("client_scripts", {"builder_script": s})
 	doc.save(ignore_permissions=True)
-	doc.publish() if hasattr(doc, "publish") else None
+	# not published on purpose: review the page in Builder, then press Publish
 	frappe.db.commit()
 	print("page", doc.name, "route", doc.route, "published", frappe.db.get_value("Builder Page", doc.name, "published"), "brochure", pdf)
