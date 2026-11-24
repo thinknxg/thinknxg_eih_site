@@ -1,0 +1,51 @@
+html,body{margin:0;padding:0}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:500;font-style:normal;font-display:swap;src:url(__FONT_500__) format("woff2")}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:600;font-style:normal;font-display:swap;src:url(__FONT_600__) format("woff2")}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:700;font-style:normal;font-display:swap;src:url(__FONT_700__) format("woff2")}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:800;font-style:normal;font-display:swap;src:url(__FONT_800__) format("woff2")}
+body,button,input,select,textarea{font-family:"Plus Jakarta Sans",Inter,Manrope,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:72px}
+.eih-btn{transition:transform .18s ease,box-shadow .18s ease}
+.eih-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(40,120,229,.35)}
+.eih-card{transition:transform .2s ease,box-shadow .2s ease}
+.eih-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(16,28,53,.12)}
+.eih-navlink:hover{color:#21C5D9!important}
+.eih-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-radius:16px}
+.eih-figure svg{display:block;width:100%;height:auto}
+.eih-layer{transition:background .15s,border-color .15s}
+.eih-layer:hover,.eih-layer.on{background:#1D3668!important;border-color:#2878E5!important}
+.eih-panel{display:none}.eih-panel.on{display:flex;animation:eihfade .3s ease}
+@keyframes eihfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.eih-reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.eih-reveal.in{opacity:1;transform:none}
+.eih-faq summary{list-style:none}.eih-faq summary::-webkit-details-marker{display:none}
+.eih-faq summary:after{content:"+";float:right;color:#2878E5;font-weight:800;font-size:22px}
+.eih-faq[open] summary:after{content:"\2212"}
+.eih-li-teal:before,.eih-li-amber:before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:#16B8A5}
+.eih-li-amber:before{background:#D98E0B}
+.eih-form{background:#fff;border-radius:20px;padding:28px;color:#536174;text-align:left}
+.eih-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.eih-field{display:flex;flex-direction:column;gap:6px}
+.eih-field label{font-size:13px;font-weight:700;color:#101C35}
+.eih-form input[type=text],.eih-form input[type=email],.eih-form select,.eih-form textarea{font:inherit;font-size:15px;padding:11px 13px;border:1.5px solid #CBD6E6;border-radius:10px;background:#F9FBFD;color:#101C35;width:100%;box-sizing:border-box}
+.eih-form input:focus,.eih-form select:focus,.eih-form textarea:focus{outline:none;border-color:#2878E5;box-shadow:0 0 0 3px rgba(40,120,229,.2)}
+.eih-form .bad{border-color:#C0392B!important}
+.eih-hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+.eih-consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;margin:14px 0;line-height:1.5}
+.eih-submit{background:linear-gradient(135deg,#2878E5,#21C5D9);color:#fff;border:0;border-radius:999px;padding:14px 30px;font-weight:800;font-size:16px;cursor:pointer}
+.eih-submit[disabled]{opacity:.6;cursor:wait}
+.eih-status{margin:12px 0 0;font-size:14px;font-weight:600}.eih-status.ok{color:#0B7F63}.eih-status.err{color:#C0392B}
+@media(max-width:640px){.eih-grid{grid-template-columns:1fr}.eih-form{padding:20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.eih-reveal{opacity:1;transform:none}}
+.eih-scroll,.eih-figure{max-width:100%}
+html,body{overflow-x:clip;max-width:100%}
+section[id] *,nav *,footer *{box-sizing:border-box}
+section[id]>div,section[id] div{min-width:0}
+@media(max-width:640px){h1{word-break:normal;overflow-wrap:anywhere}.eih-form .eih-grid{grid-template-columns:1fr}}
+
+.eih-herofig{display:block}
+@media(max-width:640px){.eih-herofig{display:none!important}}
+.eih-erp-hero{box-shadow:0 14px 40px rgba(40,120,229,.35)}
+.eih-layer{font-family:inherit}
+.eih-scroll{background:transparent}

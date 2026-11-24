@@ -1,0 +1,6 @@
+app_name = "thinknxg_eih_site"
+app_title = "thinkNXG EIH Site"
+app_publisher = "Kreatao"
+app_description = "Landing page support for thinkNXG E-Invoice Hub"
+app_email = "sales@kreatao.com"
+app_license = "mit"

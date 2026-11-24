@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "creation": "2026-11-20 10:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "full_name",
+  "business_email",
+  "company",
+  "country",
+  "erp_system",
+  "required_compliance",
+  "existing_asp",
+  "invoice_volume",
+  "message",
+  "consent",
+  "status",
+  "source_page",
+  "ip_address"
+ ],
+ "fields": [
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "business_email",
+   "fieldtype": "Data",
+   "label": "Business Email",
+   "options": "Email",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country",
+   "reqd": 1
+  },
+  {
+   "fieldname": "erp_system",
+   "fieldtype": "Data",
+   "label": "ERP System",
+   "reqd": 1
+  },
+  {
+   "fieldname": "required_compliance",
+   "fieldtype": "Select",
+   "label": "E-Invoicing Requirements",
+   "options": "\nUAE\nOman\nUAE and Oman\nGlobal Peppol / other countries",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "existing_asp",
+   "fieldtype": "Data",
+   "label": "ASP / Access Point"
+  },
+  {
+   "fieldname": "invoice_volume",
+   "fieldtype": "Data",
+   "label": "Invoice Volume"
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Small Text",
+   "label": "Message"
+  },
+  {
+   "fieldname": "consent",
+   "fieldtype": "Check",
+   "label": "Consent to store details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "New\nContacted\nQualified\nClosed",
+   "default": "New",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "source_page",
+   "fieldtype": "Data",
+   "label": "Source Page",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-11-20 10:00:00",
+ "modified_by": "Administrator",
+ "module": "ThinkNXG EIH Site",
+ "name": "E-Invoice Hub Enquiry",
+ "naming_rule": "Expression",
+ "autoname": "format:EIH-ENQ-{#####}",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "company"
+}
