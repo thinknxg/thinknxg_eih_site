@@ -10,11 +10,12 @@ import os
 import frappe
 
 HERE = os.path.dirname(__file__)
-ROUTE = "E-InvoiceHub"
+ROUTE = "kreatao/E-InvoiceHub"
 PAGE_NAME = "e-invoicehub"
 TITLE = "thinkNXG E-Invoice Hub | UAE, Oman & Global Peppol E-Invoicing"
 DESC = ("Discover thinkNXG E-Invoice Hub, a universal multi-country e-invoicing integration platform connecting thinkNXG ERP, ERPNext and enterprise systems with UAE PINT AE, Oman Fawtara and Peppol networks.")
-CANON = "https://kreatao.com/E-InvoiceHub"
+CANON = "https://thinknxg.com/kreatao/E-InvoiceHub"
+OLD_CANON = "https://kreatao.com/E-InvoiceHub"
 PALETTE = {"Navy": "#101C35", "Deep": "#163B70", "Elec": "#2878E5", "Cyan": "#21C5D9", "Teal": "#16B8A5", "White": "#FFFFFF", "Light": "#F4F7FB",
 	"Text": "#536174", "Line": "#E3EAF3", "UAE": "#17B890", "Oman": "#2E9D62", "Amber": "#D98E0B"}
 
@@ -50,7 +51,7 @@ def _script(kind, key, src):
 def run():
 	from .page_build import content, dsl
 	existing = frappe.db.get_value("Builder Page", {"route": ROUTE}) or frappe.db.get_value("Builder Page", {"route": ROUTE.lower()})
-	if existing and frappe.db.get_value("Builder Page", existing, "canonical_url") != CANON:
+	if existing and frappe.db.get_value("Builder Page", existing, "canonical_url") not in (CANON, OLD_CANON):
 		frappe.throw(f"Route {ROUTE} is already used by Builder Page {existing}; not overwriting.")
 	for k, v in PALETTE.items():
 		dsl.T[k] = _token(k, v)
@@ -67,11 +68,13 @@ def run():
 	content.BROCHURE = pdf
 	blocks = content.build_page()
 	vals = {"page_name": PAGE_NAME, "page_title": TITLE, "route": ROUTE, "blocks": json.dumps(blocks), "draft_blocks": json.dumps(blocks), "meta_description": DESC,
-		"canonical_url": CANON, "language": "en", "meta_image": og or None, "head_html": content.head_meta("https://kreatao.com" + og if og.startswith("/") else og) + content.jsonld(), "published": 0}
-	cur = frappe.db.get_value("Builder Page", {"canonical_url": CANON})
+		"canonical_url": CANON, "language": "en", "meta_image": og or None, "head_html": content.head_meta("https://thinknxg.com" + og if og.startswith("/") else og) + content.jsonld(), "published": 0}
+	cur = frappe.db.get_value("Builder Page", {"canonical_url": CANON}) or frappe.db.get_value("Builder Page", {"canonical_url": OLD_CANON})
 	if cur:
 		doc = frappe.get_doc("Builder Page", cur)
+		was = doc.published
 		doc.update(vals)
+		doc.published = was
 		doc.client_scripts = []
 	else:
 		doc = frappe.get_doc({"doctype": "Builder Page", **vals})

@@ -382,7 +382,7 @@ def build_page():
 
 TITLE = "thinkNXG E-Invoice Hub | UAE, Oman & Global Peppol E-Invoicing"
 DESC = ("Discover thinkNXG E-Invoice Hub, a universal multi-country e-invoicing integration platform connecting thinkNXG ERP, ERPNext and enterprise systems with UAE PINT AE, Oman Fawtara and Peppol networks.")
-CANON = "https://kreatao.com/E-InvoiceHub"
+CANON = "https://thinknxg.com/kreatao/E-InvoiceHub"
 KEYWORDS = "thinkNXG E-Invoice Hub, UAE E-Invoicing Integration, Oman Fawtara Integration, Global Peppol Integration, Multi-Country E-Invoicing, ERP E-Invoicing Integration, thinkNXG ERP E-Invoicing, Electronic Invoice Automation, ASP Integration Platform"
 
 
